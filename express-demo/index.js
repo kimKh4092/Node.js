@@ -3,8 +3,26 @@ const express = require('express');
 //creates a function express
 const app = express();
 //creates an express object
+const logger = require('./logger');
+const morgan = require('morgan');
 
 app.use(express.json());
+//enviroments
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+console.log(`NODE_ENV: ${app.get('env')}`);
+
+if (app.get('env') === 'development') {
+    app.use(morgan('tiny'))
+    console.log('morgan enables')
+}
+
+//create custom middleware functions
+app.use(logger)
+
+app.use(function (req, res, next) {
+    console.log('authenticating...');
+    next();
+})
 
 courses = [
     { id: 1, name: 'course1' },
@@ -110,3 +128,6 @@ app.delete('/api/courses/:id', (req, res) => {
 //PORT
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening on port ${port}...`))
+
+
+//route handler functions are middleware functions 
