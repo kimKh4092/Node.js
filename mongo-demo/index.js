@@ -45,7 +45,8 @@ async function getCourses() {
     console.log(courses);
 }
 
-getCourses();
+// getCourses();
+
 
 //comparison operators
 //eq, ne, gt, gte, lt, lte, in, nin
@@ -62,3 +63,19 @@ getCourses();
 
 //contains mosh
 //.find({author: /.*mosh*/ })
+
+
+//update document
+//1.query first
+//indById()
+//modify its properties
+//save()
+
+//2.update first
+//update directly in db => course.update()
+//mongodb update operators
+//get the updated document
+
+async function updateCourse(id) {
+
+}
