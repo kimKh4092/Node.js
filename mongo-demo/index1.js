@@ -78,3 +78,9 @@ createCourse();
 //uppercase and lowercase and trim for strings
 //getters and setters
 
+
+//transactions in relational databases
+//a group of operations that should be performed as a unit
+
+//two phase commit in mongodb
+//use fawn to simulate transactions in mongodb
